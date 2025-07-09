@@ -1,0 +1,48 @@
+# R package specific
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj.user/
+*.Rcheck/
+*.tar.gz
+*.tgz
+*.zip
+
+# R package build artifacts
+inst/www/mdeditor/markdowneditor/markdowneditor.js
+inst/www/mdeditor/markdowneditor/markdowneditor.js.map
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp

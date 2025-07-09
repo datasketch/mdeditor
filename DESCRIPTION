@@ -1,0 +1,30 @@
+Package: mdeditor
+Title: Markdown Editor for Shiny
+Version: 0.0.1
+Authors@R: 
+    person(given = "Juan Pablo",
+           family = "Marin Diaz",
+           role = c("aut", "cre"),
+           email = "jpmarindiaz@gmail.com")
+Maintainer: Juan Pablo Marin Diaz <jpmarindiaz@gmail.com>
+Description: A Shiny input widget for markdown editing using reactR and @uiw/react-md-editor.
+    Provides a rich markdown editor with live preview, syntax highlighting,
+    customizable themes, and extensive configuration options. Supports all
+    standard markdown features including headers, lists, code blocks, tables,
+    links, and more.
+URL: https://github.com/jpmarindiaz/mdeditor
+BugReports: https://github.com/jpmarindiaz/mdeditor/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 4.2)
+Imports: 
+    shiny,
+    reactR,
+    htmltools
