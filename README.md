@@ -6,10 +6,8 @@ An R package providing a Shiny input widget for markdown editing using [@uiw/rea
 
 ```r
 # Install from GitHub (when available)
-# devtools::install_github("yourusername/mdeditor")
+devtools::install_github("datasketch/mdeditor")
 
-# Or install locally
-devtools::install_local(".")
 ```
 
 ## Basic Usage
