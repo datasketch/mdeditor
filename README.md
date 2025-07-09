@@ -275,8 +275,4 @@ yarn run watch
 
 ## License
 
-[Add your license here]
-
-## Contributing
-
-[Add contribution guidelines here] # mdeditor
+MIT
