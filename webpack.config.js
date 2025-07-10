@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: path.join(__dirname, 'srcjs', 'markdowneditor.jsx'),
+    entry: path.join(__dirname, 'srcjs-shiny', 'markdowneditor.jsx'),
     output: {
         path: path.join(__dirname, 'inst/www/mdeditor/markdowneditor'),
         filename: 'markdowneditor.js'

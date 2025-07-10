@@ -23,8 +23,8 @@ ui <- fluidPage(
       numericInput("height", "Height (px):", value = 400, min = 100, max = 800),
       selectInput("width", "Width:", choices = c("100%" = "100%", "50%" = "50%", "75%" = "75%"), selected = "100%"),
       selectInput("preview", "Preview Mode:", 
-                 choices = c("Live" = "live", "Edit" = "edit", "Preview" = "preview"), 
-                 selected = "live"),
+                 choices = c("Edit" = "edit", "Live" = "live", "Preview" = "preview"), 
+                 selected = "edit"),
       selectInput("theme", "Theme:", 
                  choices = c("Light" = "light", "Dark" = "dark"), 
                  selected = "light"),
@@ -46,11 +46,20 @@ ui <- fluidPage(
       checkboxInput("lineNumbers", "Line Numbers:", value = FALSE),
       checkboxInput("highlightEnable", "Code Highlighting:", value = TRUE),
       selectInput("codeTheme", "Code Theme:", 
-                 choices = c("github", "vs", "vs-dark", "atom-one-light", "atom-one-dark"),
+                 choices = c("GitHub" = "github", 
+                           "VS Code" = "vscode",
+                           "Atom One Dark" = "atom-one-dark",
+                           "Atom One Light" = "atom-one-light",
+                           "Dracula" = "dracula",
+                           "Monokai" = "monokai",
+                           "Nord" = "nord",
+                           "Solarized Dark" = "solarized-dark",
+                           "Solarized Light" = "solarized-light"),
                  selected = "github"),
       
       # Custom Styling
       h5("Custom Styling"),
+      textInput("fontSize", "Font Size:", value = "14px"),
       textInput("className", "CSS Class:", value = ""),
       textInput("border", "Border:", value = "1px solid #ccc"),
       textInput("borderRadius", "Border Radius:", value = "4px"),
@@ -111,6 +120,7 @@ server <- function(input, output, session) {
       ),
       className = if (input$className != "") input$className else NULL,
       style = list(
+        fontSize = if (input$fontSize != "") input$fontSize else NULL,
         border = input$border,
         borderRadius = input$borderRadius
       )
@@ -140,6 +150,8 @@ server <- function(input, output, session) {
       input$lineNumbers,
       input$highlightEnable,
       input$codeTheme,
+
+      input$fontSize,
       input$className,
       input$border,
       input$borderRadius
@@ -186,7 +198,7 @@ server <- function(input, output, session) {
                        value = "# Welcome to the Configurable Editor\n\nThis editor demonstrates all available configuration options.")
     updateNumericInput(session, "height", value = 400)
     updateSelectInput(session, "width", selected = "100%")
-    updateSelectInput(session, "preview", selected = "live")
+    updateSelectInput(session, "preview", selected = "edit")
     updateSelectInput(session, "theme", selected = "light")
     updateCheckboxInput(session, "visible", value = TRUE)
     updateCheckboxInput(session, "spellCheck", value = FALSE)
@@ -200,6 +212,8 @@ server <- function(input, output, session) {
     updateCheckboxInput(session, "lineNumbers", value = FALSE)
     updateCheckboxInput(session, "highlightEnable", value = TRUE)
     updateSelectInput(session, "codeTheme", selected = "github")
+
+    updateTextInput(session, "fontSize", value = "14px")
     updateTextInput(session, "className", value = "")
     updateTextInput(session, "border", value = "1px solid #ccc")
     updateTextInput(session, "borderRadius", value = "4px")
